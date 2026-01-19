@@ -18,4 +18,17 @@ codeunit 50200 "BSCL Subscriber Store"
             Error(OnBeforeOnDeleteErr, Rec.TableCaption, Rec."No.");
         IsHandled := true;
     end;
+
+    [EventSubscriber(ObjectType::Page, Page::"BSB Book List", OnBeforeHandleBookType, '', false, false)]
+    local procedure "BSB Book List_OnBeforeHandleBookType"(var Rec: Record "BSB Book"; var IsHandled: Boolean)
+    var
+        BSCLBookTypeeBookImpl: Codeunit "BSCL Book Type eBook Impl.";
+    begin
+        if Rec.Type = "BSB Book Type"::eBook then begin
+            BSCLBookTypeeBookImpl.StartDeployBook();
+            BSCLBookTypeeBookImpl.StartDeliverBook();
+        end;
+    end;
+
+
 }
