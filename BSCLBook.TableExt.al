@@ -10,6 +10,6 @@ tableextension 50200 "BSCL Book" extends "BSB Book"
             CalcFormula = count(Customer where("BSB Favorite Book No." = field("No.")));
             ToolTip = 'Specifies the value of the No. of Customer Likes field.', Comment = '%';
         }
-        //[ ] No. of Customer Likes wird nicht zeitgerecht aktualisiert
+        //[x] No. of Customer Likes wird nicht zeitgerecht aktualisiert
     }
 }
