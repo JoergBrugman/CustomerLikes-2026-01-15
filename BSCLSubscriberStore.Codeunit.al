@@ -27,6 +27,7 @@ codeunit 50200 "BSCL Subscriber Store"
         if Rec.Type = "BSB Book Type"::eBook then begin
             BSCLBookTypeeBookImpl.StartDeployBook();
             BSCLBookTypeeBookImpl.StartDeliverBook();
+            IsHandled := true;
         end;
     end;
 
